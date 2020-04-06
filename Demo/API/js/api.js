@@ -13,8 +13,8 @@ request.onload = function () {
 
     if (request.status >= 200 && request.status < 400) {
         data.forEach(movie => {
-            count++;
-
+            // count++;
+            console.log(movie.title);
             // 新增 card
             const cardWrap = document.createElement('div');
             cardWrap.setAttribute('class', 'col-md-4');
