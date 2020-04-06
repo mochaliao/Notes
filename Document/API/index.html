@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="patty">
+    <meta name="generator" content="">
+    <title>Lists</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Custom CSS-->
+    <style>
+        .text-main {
+            color: #649000;
+        }
+    </style>
+</head>
+<body>
+<!--Header-->
+<div class="container">
+    <header class="border-bottom py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="../../index.html">Mocha Liao</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="text-muted" href="#" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                         viewBox="0 0 24 24" focusable="false"><title>Search</title>
+                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                        <path d="M21 21l-5.2-5.2"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+</div>
+<!--Main-->
+<main role="main" class="container pt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <h2 class="">API Practice</h2>
+                <p class="text-muted mb-5">April 6, 2020</p>
+                <h4>基本概念</h4>
+                <p>
+                    API (Application Program Interface)，應用程式的接口，軟體串接的橋樑
+                </p>
+                <p>
+                    網站可以使用 <b>Web APIs</b> 透過 HTTP 協議的方式，向第三方公開的 URL 端發出需求，獲取對方提供的 JSON
+                </p>
+                <div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>HTTP Method</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Create</td>
+                            <td>POST</td>
+                            <td>Creates a new resource</td>
+                        </tr>
+                        <tr>
+                            <td>Read</td>
+                            <td>GET</td>
+                            <td>Retrieves a resource</td>
+                        </tr>
+                        <tr>
+                            <td>Update</td>
+                            <td>PUT / PATCH</td>
+                            <td>Updates an exiting resource</td>
+                        </tr>
+                        <tr>
+                            <td>Delete</td>
+                            <td>DELETE</td>
+                            <td>Deletes a resource</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-5">
+                    <h4>操作</h4>
+                    <ol style="border-left: 5px solid #649000" class="mb-4">
+                        <li>閱讀 API 文件</li>
+                        <li>取得端點：URL</li>
+                        <li>使用 HTTP Request 獲取資料</li>
+                    </ol>
+
+                    <div class="mb-4">
+                        <h6 class="text-main">閱讀 API 文件</h6>
+                        <p>範例：<a class="text-secondary" href="https://ghibliapi.herokuapp.com/">Studio Ghibli API
+                            Document</a></p>
+
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="text-main">取得端點</h6>
+                        <p>範例文件裡頭， films 部分，右側有其 API 端點（URL)</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="text-main">使用 HTTP Request 獲取資料</h6>
+                        <ol>
+                            <li>新建 js 檔案，新增 <em class="text-primary">XML HttpRequest</em> 物件
+                                <br>
+                                <div class="rounded bg-light p-3 my-3">
+                                    <pre>var request = new XMLHttpRequest()</pre>
+                                </div>
+                            </li>
+                            <li>
+                                使用 <em class="text-primary">open()</em> 函式連接
+                                <br>
+                                <div class="rounded bg-light p-3 my-3">
+                                    <pre>request.open('GET', 'https://ghibliapi.herokuapp.com/films')</pre>
+                                </div>
+                            </li>
+                            <li>
+                                得到權限後（此範例無需 key )，使用 <em class="text-primary">onload()</em> 函式，進入資料
+                                <br>
+                                <div class="rounded bg-light p-3 my-3">
+                                    <pre>request.onload = function () {}</pre>
+                                </div>
+                            </li>
+                            <li>
+                                最後使用 <em class="text-primary">send()</em> ，送出邀請<br>
+                                <div class="rounded bg-light p-3 my-3">
+                                    <pre>request.send()</pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+
+                    <p>
+                        每次 HTTP 發出 Request，就會回傳 Status Code
+                    </p>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Code</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Success</td>
+                            <td>200</td>
+                            <td>請求成功</td>
+                        </tr>
+                        <tr>
+                            <td>Not found</td>
+                            <td>404</td>
+                            <td>請求失敗</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="rounded bg-light p-3 my-3">
+                        <pre>if (request.status >= 200 && request.status < 400) {
+        data.forEach(movie => {
+        console.log(movie.title)
+    })
+} else {
+    console.log('error')
+}</pre>
+                    </div>
+                    <p>
+                        需要處理 HTTP 回傳的資料，使用 <em class="text-primary">JSON.parse()</em> 將 JSON 轉換為 Javascript 物件，再對資料做處理
+                    </p>
+                    <div class="rounded bg-light p-3 my-3">
+                        <pre>var data = JSON.parse(this.response)</pre>
+                    </div>
+
+                    <div class="mb-5">
+                        <a class="btn btn-outline-secondary" href="../../Demo/API/index.html" target="_blank">Demo</a>
+                    </div>
+
+                    <h4>參考資料</h4>
+                    <ol>
+                        <li>
+                            <a href="https://leahlin912.github.io/2019/04/08/JS-%E4%BD%BF%E7%94%A8API%E4%B8%B2%E6%8E%A5%E5%85%AC%E9%96%8B%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B3%87%E6%BA%90/">JavaScript-使用API串接公開第三方資源</a>
+                        </li>
+                        <li>取得端點：URL</li>
+                        <li>使用 HTTP Request 獲取資料</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <aside class="col-md-4">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="font-italic">Lists</h4>
+                <ol class="list-unstyled mb-0">
+                    <li><a href="../../Demo/API/index.html">Ghibliapi</a></li>
+                </ol>
+            </div>
+        </aside>
+    </div>
+
+</main>
+<!--Footer-->
+<footer>
+    <div class="container">
+        <div class="py-4 text-center">Mocha ©
+            <span><script type="text/javascript"> document.write(new Date().getFullYear())</script></span>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>
